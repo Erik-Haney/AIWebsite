@@ -27,44 +27,80 @@ header p {
     font-size: 18px;
 }
 
-/* Style the navigation menu */
-nav {
+/* Style the top navigation bar */
+.top-nav {
     background-color: #333;
+    color: #fff;
 }
 
-nav ul {
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+    float: left;
+    margin: 10px 20px;
+}
+
+.nav-links {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-nav ul li {
+.nav-links li {
     display: inline;
     margin-right: 20px;
+    position: relative;
 }
 
-nav a {
+.nav-links a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
 }
 
-/* Style the content section */
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-section {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-/* Style the footer */
-footer {
+/* Style the dropdown menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
     background-color: #333;
-    color: #fff;
+    border: 1px solid #666;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 10px;
     text-align: center;
-    padding: 10px 0;
+}
+
+/* Media query for responsive design (toggle menu) */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        right: 0;
+    }
+
+    .nav-links li {
+        margin-right: 0;
+    }
+
+    .menu-toggle:hover + .nav-links {
+        display: flex;
+    }
 }
